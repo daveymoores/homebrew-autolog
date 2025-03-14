@@ -1,14 +1,25 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Autolog < Formula
-  desc "A commit-log based timesheet generator, written in Rust"
+  desc "CLI tool for automated logging"
   homepage "https://github.com/daveymoores/autolog"
-  url "https://github.com/daveymoores/autolog/releases/download/0.1.1-alpha/autolog-mac.tar.gz"
-  sha256 "1138a0f884208ba79326ec27725e0adc547c3e6272d64d8fda5b56a0085f4557"
-  version "0.1.1-alpha"
+  url "https://github.com/daveymoores/autolog/releases/download/v0.2.0-beta/autolog-mac.tar.gz"
+  sha256 "406413f1466c096a502b7aa001b65e2610bbb2a13303f464b89389465bffcabd"
+  license "MIT"
+
+  depends_on "rust" => :build
 
   def install
-    bin.install "autolog"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+  end
+
+  def post_uninstall
+    db_dir = "#{ENV["HOME"]}/Library/Application Support/dev.autolog.cli"
+    if Dir.exist?(db_dir)
+      puts "Removing database directory at #{db_dir}"
+      system "rm", "-rf", db_dir
+    end
+  end
+
+  test do
+    system "#{bin}/autolog", "--version"
   end
 end
