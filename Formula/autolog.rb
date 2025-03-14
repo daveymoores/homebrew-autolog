@@ -5,10 +5,9 @@ class Autolog < Formula
   sha256 "406413f1466c096a502b7aa001b65e2610bbb2a13303f464b89389465bffcabd"
   license "MIT"
 
-  depends_on "rust" => :build
-
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    bin.install "autolog" # Directly install the binary
+    (var/"autolog").mkpath
   end
 
   def post_uninstall
@@ -20,6 +19,6 @@ class Autolog < Formula
   end
 
   test do
-    system "#{bin}/autolog", "--version"
+    assert_match "autolog version", shell_output("#{bin}/autolog --version")
   end
 end
