@@ -1,8 +1,8 @@
 class Autolog < Formula
   desc "CLI tool for automated logging"
   homepage "https://github.com/daveymoores/autolog"
-  url "https://github.com/daveymoores/autolog/releases/download/v0.2.1-beta/autolog-mac.tar.gz"
-  sha256 "406413f1466c096a502b7aa001b65e2610bbb2a13303f464b89389465bffcabd"
+  url "https://github.com/daveymoores/autolog/releases/download/v0.3.65/autolog-mac.tar.gz"
+  sha256 "a3e8408fbc95c04e7bde98e9415b7b7b2f96eb7d6f60de04b0271ec5eb81f638"
   license "MIT"
 
   def install
