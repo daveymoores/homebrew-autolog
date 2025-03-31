@@ -1,8 +1,8 @@
 class Autolog < Formula
   desc "Git-based CLI tool for timesheet generation"
   homepage "https://github.com/daveymoores/autolog"
-  url "https://github.com/daveymoores/autolog/releases/download/v0.3.70/autolog-mac.tar.gz"
-  sha256 "a7dbc29b664de572daf8e871bc3100f7940860b2d39cb8a710694f61b6aa9652"
+  url "https://github.com/daveymoores/autolog/releases/download/v0.3.71/autolog-mac.tar.gz"
+  sha256 "936aed30b3369dc4649ffebba6a0f872572fa6494ef96bdec85c72d82e7e82c1"
   license "MIT"
 
   def install
